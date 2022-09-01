@@ -4,7 +4,7 @@ Python source code directory: ./src
 # Infrasturcture
 Terraform source directory: ./infrastructure
 
-This project is configured to work with LocalStack, LocalAWS, Terraform and LocalTF.
+This project is configured to work with LocalAWS, Terraform and LocalTF.
 These tools simulate working with AWS locally by wrapping aroung the regular `aws` and `terraform` commands.
 
 In this environment instead of running a command with `aws` you should use `awslocal`  
@@ -40,6 +40,3 @@ If you whant change the contant of the file just remaber at the end to run:
 ## Greet
 If you whant to greet just run:
 ```curl -X POST -d 'name=costom_name' http://<API endpoint URL>/greet```
-
-## Check Localstack (AWS services) logs
-```docker logs localstack_main```

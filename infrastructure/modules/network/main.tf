@@ -5,8 +5,8 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = true
 
   tags = {
-    Name        = "pa-vpc"
-    Environment = "pa"
+    Name        = "example-vpc"
+    Environment = "example"
   }
 }
 
@@ -15,8 +15,8 @@ resource "aws_vpc" "vpc" {
 resource "aws_internet_gateway" "ig" {
   vpc_id = aws_vpc.vpc.id
   tags = {
-    Name        = "pa-igw"
-    Environment = "pa"
+    Name        = "example-igw"
+    Environment = "example"
   }
 }
 
@@ -28,8 +28,8 @@ resource "aws_subnet" "public_subnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name        = "pa-public-subnet"
-    Environment = "pa"
+    Name        = "example-public-subnet"
+    Environment = "example"
   }
 }
 
@@ -42,14 +42,14 @@ resource "aws_subnet" "private_subnet" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name        = "pa-private-subnet"
-    Environment = "pa"
+    Name        = "example-private-subnet"
+    Environment = "example"
   }
 }
 
 # Default Security Group of VPC
 resource "aws_security_group" "default" {
-  name        = "pa-default-sg"
+  name        = "example-default-sg"
   description = "Default SG to allow traffic from the VPC"
   vpc_id      = aws_vpc.vpc.id
   depends_on = [
@@ -71,6 +71,6 @@ resource "aws_security_group" "default" {
   }
 
   tags = {
-    Environment = "pa"
+    Environment = "example"
   }
 }

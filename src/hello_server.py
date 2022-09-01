@@ -14,11 +14,11 @@ def get_file_content():
     return file_content
 
 def default_page(event, context):
-    message = '\nHello, Palo Alto!\n' 
+    message = '\nHello!\n' 
     return { 
         "isBase64Encoded": False, 
         "statusCode": 200, 
-        "headers": { "x-palo-alto": "hi"},
+        "headers": { "x-hello": "hi"},
         "body": message
     }
 
@@ -27,7 +27,7 @@ def get_my_file(event, context):
     return { 
         "isBase64Encoded": True, 
         "statusCode": 200, 
-        "headers": { "x-palo-alto": "hi"},
+        "headers": { "x-hello": "hi"},
         "body": base64.b64encode(file_content)
     }
 
@@ -38,13 +38,13 @@ def get_greet(event,context):
         return {
             "isBase64Encoded": False, 
             "statusCode": 200, 
-            "headers": { "x-palo-alto": "hi"},
+            "headers": { "x-hello": "hi"},
             "body": "Missing name!"
         }
     return { 
             "isBase64Encoded": False, 
             "statusCode": 200, 
-            "headers": { "x-palo-alto": "hi"},
+            "headers": { "x-hello": "hi"},
             "body": f"Hello, {match.group(1)}"
     }
 

@@ -7,7 +7,7 @@ resource "aws_iam_role" "lambda_role" {
   "Statement": [
     {
       "Action": "sts:AssumeRole",
-      "Principal": {
+      "Princiexamplel": {
         "Service": "lambda.amazonaws.com"
       },
       "Effect": "Allow",
@@ -33,13 +33,13 @@ EOF
 
 data "archive_file" "lambda_archive" {
   type        = "zip"
-  source_file = "${path.module}/../../../src/hello_server.py"
-  output_path = "${path.module}/hello_server.py.zip"
+  source_file = "${exampleth.module}/../../../src/hello_server.py"
+  output_exampleth = "${exampleth.module}/hello_server.py.zip"
 }
 
 resource "aws_lambda_function" "hello_world_lambda" {
-  function_name = "pa-hello-world"
-  filename      = data.archive_file.lambda_archive.output_path
+  function_name = "example-hello-world"
+  filename      = data.archive_file.lambda_archive.output_exampleth
   role          = aws_iam_role.lambda_role.arn
   runtime       = "python3.8"
   handler       = "hello_server.hello_world"
